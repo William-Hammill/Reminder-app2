@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
+import com.aminography.primecalendar.PrimeCalendar;
+import com.aminography.primecalendar.civil.CivilCalendar;
+import com.aminography.primedatepicker.picker.PrimeDatePicker;
+import com.aminography.primedatepicker.picker.callback.SingleDayPickCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -22,7 +26,8 @@ public class ClassView extends AppCompatActivity {
     CalendarView classCalendar; // calendar to display subject tasks
    // FBDatabase FB; // database to load tasks from
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    PrimeCalendar today = new CivilCalendar();
+    PrimeDatePicker dateSelector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,10 @@ public class ClassView extends AppCompatActivity {
         addnewbtn = (Button) findViewById(R.id.classAddBtn);
         datefilterbtn = (Button) findViewById(R.id.classDtFilter);
         classCalendar = (CalendarView) findViewById(R.id.ClassCalendar);
+        dateSelector = PrimeDatePicker.Companion.dialogWith(today)
+                .pickSingleDay(callback)
+                .build();
+        dateSelector.show(getSupportFragmentManager(),"t");
 
        // sets dates for class calendar
         classCalendar.setDate(loadDate());
@@ -119,4 +128,10 @@ public class ClassView extends AppCompatActivity {
                 });
         return Task[0];
     }
+    SingleDayPickCallback callback = new SingleDayPickCallback() {
+        @Override
+        public void onSingleDayPicked(PrimeCalendar singleDay) {
+
+        }
+    };
 }

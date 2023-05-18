@@ -30,6 +30,7 @@ public class FBDatabase extends SQLiteOpenHelper {
     // Creating Table
     @Override
     public void onCreate(SQLiteDatabase fb) {
+        // generates database
         String CREATE_Class_TABLE = "CREATE TABLE " + TABLE_Tasks + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT, KEY_NAME)";
         fb.execSQL(CREATE_Class_TABLE);

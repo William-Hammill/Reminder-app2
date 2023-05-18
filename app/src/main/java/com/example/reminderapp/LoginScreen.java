@@ -50,6 +50,7 @@ public class LoginScreen extends AppCompatActivity {
         });
 
     }
+    // comment from choiru
     void switchtoSignUp(){
         Intent SwitchAddTask = new Intent(this, SignUpScreen.class);
         startActivity(SwitchAddTask);

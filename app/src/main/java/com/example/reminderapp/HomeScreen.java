@@ -31,7 +31,7 @@ public class HomeScreen extends AppCompatActivity {
 
     Query query = FirebaseFirestore.getInstance()
             .collection("user tasks")
-            .orderBy("Date")
+            .orderBy("date")
             .limit(3);
 
     //RecyclerView.ViewHolder taskHolder;
@@ -61,12 +61,6 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 switchtoClass();
-            }
-        });
-        top3Tasks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadTop3Tasks();
             }
         });
         FirestoreRecyclerOptions<Task> options = new FirestoreRecyclerOptions.Builder<Task>()
@@ -100,6 +94,7 @@ public class HomeScreen extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+    // left over attempt to load recycler view with tasks
     private void loadTop3Tasks() { // populates recycler view with tasks with earliest due date
         DocumentReference docRef = db.collection("user tasks").document("");
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

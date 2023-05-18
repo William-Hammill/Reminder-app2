@@ -81,31 +81,7 @@ public class FBDatabase extends SQLiteOpenHelper {
                                 if (cursor != null) cursor.moveToFirst();
                                Class_Task Class = new Class_Task(cursor.getString(0));
                                  return Class;
-                               }
-
-
-// Getting All Contacts
-//public List<Tasks> getAllTasks() {
- //       List<Student> taskList = new ArrayList<Task>();
-        // Select All Query
-    //    String selectQuery = "SELECT * FROM " + TABLE_Tasks;
-
-  //      FBdatabase fb = this.getWritableDatabase();
-   //     Cursor cursor = db.rawQuery(selectQuery, null);
-    //    // looping through all rows and adding to list
-    //    if (cursor.moveToFirst()) { do {
-    //    Task task = new Student();
-     //   task.setID(cursor.getString(0));
-     //   task.setDescription(cursor.getString(1));
-    //    task.setDate(cursor.getString(2));
-        // Adding task to list
-   //     TaskList.add(task); }
-   //     while (cursor.moveToNext());
-    //    }
-
-        // return task list
-    //    return TaskList;
-    //    }
+    }
 
 // Updating single Task
 public int updateTask(Class_Task Class) {

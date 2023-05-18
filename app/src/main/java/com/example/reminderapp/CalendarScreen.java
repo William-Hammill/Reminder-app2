@@ -2,6 +2,7 @@ package com.example.reminderapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
+import com.aminography.primecalendar.PrimeCalendar;
+import com.aminography.primecalendar.civil.CivilCalendar;
+import com.aminography.primedatepicker.picker.PrimeDatePicker;
+import com.aminography.primedatepicker.picker.callback.SingleDayPickCallback;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -25,6 +30,8 @@ public class CalendarScreen extends AppCompatActivity {
     Button datefilterbtn; // filters calendar by closest due date
     FBDatabase FB; // database storing classes
     FirebaseFirestore db = FirebaseFirestore.getInstance(); // database storing tasks
+    PrimeCalendar today = new CivilCalendar();
+    PrimeDatePicker dateSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +42,15 @@ public class CalendarScreen extends AppCompatActivity {
         classfilterbtn = (Button) findViewById(R.id.classfilter);
         datefilterbtn = (Button) findViewById(R.id.dateFilter);
         calendar = (CalendarView) findViewById(R.id.mainCalendar);
+        dateSelector = PrimeDatePicker.Companion.dialogWith(today)
+                .pickSingleDay(callback)
+                .build();
+        dateSelector.show(getSupportFragmentManager(),"t");
 
        // sets dates for calendar
-        calendar.setDate(loadDate());
-        calendar.setMaxDate(1/2024);
-        calendar.setMinDate(1/2023);
+       // calendar.setDate(loadDate());
+       // calendar.setMaxDate(1/2024);
+       // calendar.setMinDate(1/2023);
 
 
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +90,12 @@ public class CalendarScreen extends AppCompatActivity {
                 switchToDetails();
             }
         });
+        SingleDayPickCallback callback = new SingleDayPickCallback() {
+            @Override
+            public void onSingleDayPicked(PrimeCalendar singleDay) {
+
+            }
+        };
     }
 
     private void switchToDetails() {
@@ -144,4 +161,11 @@ public class CalendarScreen extends AppCompatActivity {
                 });
         return Long.parseLong(dateTask[0].getDate());
     }
+    SingleDayPickCallback callback = new SingleDayPickCallback() {
+        @Override
+        public void onSingleDayPicked(PrimeCalendar singleDay) {
+
+        }
+    };
+
 }

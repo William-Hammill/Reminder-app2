@@ -47,10 +47,10 @@ public class CalendarScreen extends AppCompatActivity {
                 .build();
         dateSelector.show(getSupportFragmentManager(),"t");
 
-       // sets dates for calendar
-       // calendar.setDate(loadDate());
-       // calendar.setMaxDate(1/2024);
-       // calendar.setMinDate(1/2023);
+       // sets dates for calendar,   temporary until multi date display is finished
+        calendar.setDate(loadDate());
+        calendar.setMaxDate(1/2024);
+        calendar.setMinDate(1/2023);
 
 
         backbtn.setOnClickListener(new View.OnClickListener() {

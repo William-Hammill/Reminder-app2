@@ -21,18 +21,18 @@ public class ClassSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_select);
-        calendarbtn = (Button) findViewById(R.id.CalendarBtn);
-        newclassbtn = (Button) findViewById(R.id.createClassBtn);
-        class1btn = (Button) findViewById(R.id.Class1Btn);
-        class2btn = (Button) findViewById(R.id.Class2Btn);
-        class3btn = (Button) findViewById(R.id.Class3Btn);
-        class4btn = (Button) findViewById(R.id.Class4Btn);
+        calendarbtn = (Button) findViewById(R.id.CalendarBtn); // switches to all class calendar AKA main calendar
+        newclassbtn = (Button) findViewById(R.id.createClassBtn); // sends user to class creation page
+        class1btn = (Button) findViewById(R.id.Class1Btn); // should switch to first class view screen
+        class2btn = (Button) findViewById(R.id.Class2Btn); // button for second class in database (if one exists
+        class3btn = (Button) findViewById(R.id.Class3Btn); // button for second class in database (if one exists
+        class4btn = (Button) findViewById(R.id.Class4Btn); // button for second class in database (if one exists
 
         calendarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
-            }
+            } // switches back to previous screen
         });
         newclassbtn.setOnClickListener(new View.OnClickListener() {
             @Override

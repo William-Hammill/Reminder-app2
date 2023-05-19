@@ -95,15 +95,15 @@ public class HomeScreen extends AppCompatActivity {
         adapter.stopListening();
     }
     // left over attempt to load recycler view with tasks
-    private void loadTop3Tasks() { // populates recycler view with tasks with earliest due date
-        DocumentReference docRef = db.collection("user tasks").document("");
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Task task = documentSnapshot.toObject(Task.class);
-            }
-        });
-    }
+   // private void loadTop3Tasks() { // populates recycler view with tasks with earliest due date
+     //   DocumentReference docRef = db.collection("user tasks").document("");
+      //  docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+          //  @Override
+        //    public void onSuccess(DocumentSnapshot documentSnapshot) {
+            //    Task task = documentSnapshot.toObject(Task.class);
+          //  }
+       // });
+   // }
 
     private void switchtoCalendar(){ // sends user to calendar screen
         Intent SwitchCalendar = new Intent(this, CalendarScreen.class);

@@ -59,12 +59,12 @@ public class AddClass extends AppCompatActivity {
     private void addClass(){
         Class = new Class_Task(String.valueOf(className));
         fb.getClass(String.valueOf(className));
-        db.collection("user tasks")
+        db.collection("user tasks")// firebase collection used by database
                 .add(Class)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.d("", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Log.d("", "DocumentSnapshot added with ID: " + documentReference.getId()); // converts task to document and generates ID
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

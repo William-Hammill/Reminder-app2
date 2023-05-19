@@ -115,31 +115,31 @@ public class CalendarScreen extends AppCompatActivity {
     }
     private Task loadTask() {
         final Task[] Task = new Task[1];
-        db.collection("user tasks")
-                .get()
+        db.collection("user tasks")// loads firebase collection
+                .get() // gets contents of database
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d("", document.getId() + " => " + document.getData());
-                                Task[0] = (Task) document.getData();
+                                Task[0] = (Task) document.getData(); // generates task from database contents
                             }
                         } else {
                             Log.w("", "Error getting documents.");
                         }
                     }
                 });
-        return Task[0];
+        return Task[0]; // returns newly generated and filled class from onComplete method
     }
 
-    private void classFilter(){
+    private void classFilter(){ // changes calendar date based on class
         FB.getClass();
         Task classTask = loadTask();
         Long classDate = Long.valueOf(classTask.getDate());
         calendar.setDate(classDate);
     }
-    private long loadDate() {
+    private long loadDate() { // loads dates to populate calendar
         final Task[] dateTask = new Task[1];
         db.collection("user tasks")
                 .get()

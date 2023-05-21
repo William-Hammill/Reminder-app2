@@ -38,6 +38,7 @@ public class LoginScreen extends AppCompatActivity {
         SignBtn = findViewById(R.id.SignBtn);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
+            // Preet's code
             @Override
             public void onClick(View view) {
                 String emailAddress, password; // declaring two String variables. They hold the user input
@@ -82,14 +83,8 @@ public class LoginScreen extends AppCompatActivity {
         });
 
     }
-
     public void openSignUpPage() {
         Intent intent = new Intent(this, SignUpScreen.class);
-        startActivity(intent);
-    }
-
-    public void openHomescreen() {
-        Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
 

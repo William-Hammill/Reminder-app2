@@ -28,6 +28,7 @@ public class CalendarScreen extends AppCompatActivity {
     Button addNewBtn; // sends uset to new task screen
     Button classfilterbtn; // filters calendar by class
     Button datefilterbtn; // filters calendar by closest due date
+    Button detailsBtn; // backup method to switch to details screen incase calendar doesn't work
     FBDatabase FB; // database storing classes
     FirebaseFirestore db = FirebaseFirestore.getInstance(); // database storing tasks
     PrimeCalendar today = new CivilCalendar();
@@ -42,6 +43,7 @@ public class CalendarScreen extends AppCompatActivity {
         classfilterbtn = (Button) findViewById(R.id.classfilter);
         datefilterbtn = (Button) findViewById(R.id.dateFilter);
         calendar = (CalendarView) findViewById(R.id.mainCalendar);
+        detailsBtn = (Button) findViewById(R.id.DetailsBtn);
         dateSelector = PrimeDatePicker.Companion.dialogWith(today)
                 .pickSingleDay(callback)
                 .build();
@@ -85,6 +87,12 @@ public class CalendarScreen extends AppCompatActivity {
             }
         });
         calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchToDetails();
+            }
+        });
+        detailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switchToDetails();

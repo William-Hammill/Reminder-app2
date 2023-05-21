@@ -24,7 +24,9 @@ public class ClassView extends AppCompatActivity {
     Button addnewbtn; // adds new task
     Button datefilterbtn; // filters calendar by date
     CalendarView classCalendar; // calendar to display subject tasks
-   // FBDatabase FB; // database to load tasks from
+   // FBDatabase FB; //  old database to load tasks from
+
+    Button detailsBtn; // backup method to switch to details screen incase calendar doesn't work
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     PrimeCalendar today = new CivilCalendar();
     PrimeDatePicker dateSelector;
@@ -40,6 +42,7 @@ public class ClassView extends AppCompatActivity {
                 .pickSingleDay(callback)
                 .build();
         dateSelector.show(getSupportFragmentManager(),"t");
+        datefilterbtn = (Button) findViewById(R.id.DetailsBtn);
 
        // sets dates for class calendar
         classCalendar.setDate(loadDate());
@@ -65,6 +68,12 @@ public class ClassView extends AppCompatActivity {
             }
         });
         classCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchToDetails();
+            }
+        });
+        detailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switchToDetails();

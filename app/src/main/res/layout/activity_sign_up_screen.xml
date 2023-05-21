@@ -7,7 +7,7 @@
     tools:context=".SignUpScreen">
 
     <Button
-        android:id="@+id/accountBtn"
+        android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
@@ -16,17 +16,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailAddress"
         android:layout_width="231dp"
         android:layout_height="62dp"
         android:layout_marginTop="92dp"
         android:layout_marginEnd="92dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Email address"
+        android:text="Email Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/username"
@@ -34,11 +34,11 @@
         android:layout_height="53dp"
         android:layout_marginTop="188dp"
         android:layout_marginEnd="96dp"
-        android:text="TextView"
+        android:text="Username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
         android:layout_width="224dp"
         android:layout_height="77dp"
@@ -57,8 +57,7 @@
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="284dp"
         android:ems="10"
-        android:inputType="number"
-        android:text="phone number"
+        android:text="Number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -68,7 +67,8 @@
         android:layout_height="80dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="196dp"
-        android:text="TextView"
+        android:autofillHints="institution"
+        android:text="Institution"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
